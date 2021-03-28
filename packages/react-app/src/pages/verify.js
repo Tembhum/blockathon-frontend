@@ -55,6 +55,10 @@ const Verify = () => {
             <FormLabel>Event address</FormLabel>
             <Input name="eventAddress" ref={register} />
           </Box>
+          <Box>
+            <FormLabel>My address</FormLabel>
+            <Text>{myAccount}</Text>
+          </Box>
           <Button type="submit">Verify eliglibility</Button>
         </VStack>
       </form>
