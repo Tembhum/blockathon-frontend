@@ -1,8 +1,10 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "@apollo/react-hooks";
-import "./index.css";
+import { ChakraProvider } from "@chakra-ui/react";
+import { RecoilRoot } from "recoil";
 import App from "./App";
 
 // You should replace this url with your own and put it into a .env file
@@ -13,7 +15,13 @@ const client = new ApolloClient({
 
 ReactDOM.render(
   <ApolloProvider client={client}>
-    <App />
+    <Router>
+      <RecoilRoot>
+        <ChakraProvider>
+          <App />
+        </ChakraProvider>
+      </RecoilRoot>
+    </Router>
   </ApolloProvider>,
-  document.getElementById("root"),
+  document.getElementById("root")
 );
